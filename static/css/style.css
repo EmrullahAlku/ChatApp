@@ -1,0 +1,17 @@
+:root {
+  --primary-color: #0d24a6;
+  --secondary-color: #44fef2;
+  --tertiary-color: #437320;
+  --quaternary-color: #bf2a2a;
+  --base-color: #0d0d0d;
+  --card-color: #1c1c1c;
+}
+
+header {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  background: var(--base-color);
+}

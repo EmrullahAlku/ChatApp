@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      {% block title %} EShopper - Bootstrap Shop Template {% endblock %}
+    </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content={% block keywords %}"Free HTML Templates"{% endblock %}
+    name="keywords"> <meta content={% block description %}"Free HTML
+    Templates"{% endblock %} name="description">
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Topbar Start -->
+    {% include 'header.html' %}
+    <!-- Topbar End -->
+
+    {% block body %} {% endblock %}
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>
