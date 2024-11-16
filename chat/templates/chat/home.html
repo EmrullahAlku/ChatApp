@@ -1,0 +1,18 @@
+{% extends 'chat/base.html' %}
+<div></div>
+{% block title %} {{ settings.title }} {% endblock %}
+<div></div>
+{% block keywords %} {{ settings.keywords }} {% endblock %}
+<div></div>
+{% block description %} {{ settings.description }} {% endblock %}
+
+<div></div>
+
+{% block body %}
+<aside>
+  <!-- Sidebar start-->
+  {% include 'chat/components/socialSideBar.html' %}
+  <!-- Sidebar end -->
+</aside>
+<main>{% include 'chat/components/socialChat.html' %}</main>
+{% endblock %}

@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_sass',
     'channels',
+    
     'chat',
 ]
 
@@ -127,10 +129,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-""" STATIFILER_DIRS = [
+STATICFILES_DIRS = [
     BASE_DIR / "static",
-] """
-STATIFILER_DIRS = [os.path.join(BASE_DIR, "static")]
+    "/var/www/static/",
+]
+#STATIFILER_DIRS = [os.path.join(BASE_DIR, "static")]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

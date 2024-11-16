@@ -11,15 +11,18 @@
     name="keywords"> <meta content={% block description %}"Free HTML
     Templates"{% endblock %} name="description">
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <link href="{% static '/css/style.css' %}" rel="stylesheet" />
   </head>
 
   <body>
-    <!-- Topbar Start -->
-    {% include 'header.html' %}
-    <!-- Topbar End -->
+    <!-- Header Start -->
+    {% include 'chat/components/header.html' %}
+    <!-- Header End -->
 
-    {% block body %} {% endblock %}
+    {% block body %} İndex {% endblock %}
+
+    <!-- JavaScript Libraries -->
+    {{ room_name|json_script:"room-name" }}
     <script src="{% static 'js/main.js' %}"></script>
   </body>
 </html>
