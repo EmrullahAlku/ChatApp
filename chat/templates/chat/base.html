@@ -15,11 +15,13 @@
   </head>
 
   <body>
-    <!-- Header Start -->
-    {% include 'chat/components/header.html' %}
-    <!-- Header End -->
+    <div class="chatPage">
+      <!-- Header Start -->
+      {% include 'chat/components/header.html' %}
+      <!-- Header End -->
 
-    {% block body %} İndex {% endblock %}
+      {% block body %} İndex {% endblock %}
+    </div>
 
     <!-- JavaScript Libraries -->
     {{ room_name|json_script:"room-name" }}

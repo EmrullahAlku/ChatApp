@@ -1,12 +1,62 @@
 body {
-  display: grid;
-  min-width: 860px;
+  display: flex;
+  min-width: 100vh;
   height: 100vh;
   background: #0d0d0d;
+  justify-content: center;
+  align-items: center;
+}
+body .chatPage {
+  width: 100%;
+  height: 100%;
+  display: grid;
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 76px 1fr;
   gap: 24px;
   grid-template-areas: "header header" "sidebar main";
+}
+body .loginPage {
+  color: white;
+  background-color: #1c1c1c;
+  display: flex;
+  height: 720px;
+  width: 480px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body .enterRoomPage {
+  color: white;
+  background-color: #1c1c1c;
+  display: flex;
+  height: 80vh;
+  width: 60vh;
+  gap: 24px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 18px;
+}
+body .enterRoomPage .roomNameInput {
+  width: 80%;
+  height: fit-content;
+  padding: 12px;
+  border-radius: 24px;
+  background: #0d0d0d;
+  color: white;
+  border: none;
+}
+body .enterRoomPage .roomNameSubmit {
+  width: fit-content;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  height: fit-content;
+  padding: 18px 24px;
+  border-radius: 24px;
+  background: #0d0d0d;
+  color: white;
+  border: none;
 }
 
 header {
@@ -20,26 +70,22 @@ header {
   align-self: center;
   background: #0d0d0d;
 }
-
 header .arrows {
   display: flex;
   padding: 10px;
   align-items: flex-start;
   gap: 10px;
 }
-
 header .arrows .back {
   width: 22;
   height: 30;
   color: white;
 }
-
 header .arrows .forward {
   width: 22;
   height: 30;
   color: #bfb6b6;
 }
-
 header .searchBar {
   height: 52pxpx;
   display: flex;
@@ -50,7 +96,6 @@ header .searchBar {
   border-radius: 28px;
   background: #1c1c1c;
 }
-
 header .searchBar .searchArea {
   display: flex;
   padding: 4px 12px;
@@ -58,7 +103,6 @@ header .searchBar .searchArea {
   align-items: center;
   width: 100%;
 }
-
 header .searchBar .searchArea input {
   display: flex;
   width: 100%;
@@ -69,13 +113,11 @@ header .searchBar .searchArea input {
   border-color: transparent;
   color: white;
 }
-
 header .searchBar .searchArea svg {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
-
 header .tabGroup {
   display: flex;
   align-items: center;
@@ -87,11 +129,9 @@ header .tabGroup {
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px;
-  /* 142.857% */
+  line-height: 20px; /* 142.857% */
   letter-spacing: 0.1px;
 }
-
 header .tabGroup .profile {
   display: flex;
   height: 48px;
@@ -101,7 +141,6 @@ header .tabGroup .profile {
   flex: 1 0 0;
   color: white;
 }
-
 header .tabGroup .profile .avatar {
   display: flex;
   width: 24px;
@@ -115,11 +154,9 @@ header .tabGroup .profile .avatar {
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px;
-  /* 150% */
+  line-height: 24px; /* 150% */
   letter-spacing: 0.15px;
 }
-
 header .tabGroup .profile .lang {
   color: white;
   text-align: center;
@@ -128,11 +165,9 @@ header .tabGroup .profile .lang {
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px;
-  /* 142.857% */
+  line-height: 20px; /* 142.857% */
   letter-spacing: 0.1px;
 }
-
 header .tabGroup .server {
   display: flex;
   height: 48px;
@@ -141,7 +176,6 @@ header .tabGroup .server {
   align-items: center;
   flex: 1 0 0;
 }
-
 header .tabGroup .state-layer {
   display: flex;
   padding: 0px 16px;
@@ -151,7 +185,6 @@ header .tabGroup .state-layer {
   flex: 1 0 0;
   align-self: stretch;
 }
-
 header .tabGroup .state-layer .content {
   display: flex;
   padding: 12px 0px;
@@ -160,7 +193,6 @@ header .tabGroup .state-layer .content {
   gap: 8px;
   flex: 1 0 0;
 }
-
 header .divider {
   width: 240px;
   height: 1px;
@@ -178,20 +210,18 @@ main {
   flex-shrink: 0;
   align-self: stretch;
 }
-
 main .chatHistory {
   display: flex;
   padding: 4px;
   flex-direction: column;
   justify-content: flex-end;
   align-items: start;
-  gap: 10px;
+  gap: 0px;
   flex: 1 0 0;
   align-self: stretch;
-  border-radius: 64px 0px 0px 0px;
+  border-radius: 16px 0px 0px 0px;
   background: #1c1c1c;
 }
-
 main .chatHistory .oldMessages {
   display: flex;
   height: 72px;
@@ -200,7 +230,6 @@ main .chatHistory .oldMessages {
   gap: 16px;
   align-self: stretch;
 }
-
 main .chatHistory .oldMessages .avatar {
   display: flex;
   flex-direction: column;
@@ -213,7 +242,6 @@ main .chatHistory .oldMessages .avatar {
   background: var(--M3-sys-dark-primary-container, #4f378b);
   color: white;
 }
-
 main .chatHistory .oldMessages .content .headline {
   align-self: stretch;
   color: #44fef2;
@@ -221,11 +249,9 @@ main .chatHistory .oldMessages .content .headline {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px;
-  /* 150% */
+  line-height: 24px; /* 150% */
   letter-spacing: 0.5px;
 }
-
 main .chatHistory .oldMessages .content .message {
   height: 20px;
   align-self: stretch;
@@ -238,11 +264,9 @@ main .chatHistory .oldMessages .content .message {
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px;
-  /* 142.857% */
+  line-height: 20px; /* 142.857% */
   letter-spacing: 0.25px;
 }
-
 main .sendMessage {
   display: flex;
   height: 52px;
@@ -252,7 +276,6 @@ main .sendMessage {
   align-self: stretch;
   background: #1c1c1c;
 }
-
 main .sendMessage .writeBar {
   display: flex;
   padding: 8px 0px 8px 12px;
@@ -261,12 +284,10 @@ main .sendMessage .writeBar {
   flex: 1 0 0;
   align-self: stretch;
 }
-
 main .sendMessage .writeBar svg {
   width: 28px;
   height: 28px;
 }
-
 main .sendMessage .writeBar input {
   background-color: transparent;
   border: none;
@@ -274,7 +295,6 @@ main .sendMessage .writeBar input {
   height: 100%;
   color: white;
 }
-
 main .sendMessage .micButton {
   display: flex;
   width: 48px;
@@ -285,7 +305,6 @@ main .sendMessage .micButton {
   border-radius: 32px;
   background: #0d0d0d;
 }
-
 main .sendMessage .submitButton {
   display: flex;
   width: 48px;
@@ -302,7 +321,6 @@ aside {
   height: 100%;
   width: 100%;
 }
-
 aside .socialSidaBar {
   display: flex;
   width: 100%;
@@ -315,7 +333,6 @@ aside .socialSidaBar {
   align-self: stretch;
   justify-content: flex-start;
 }
-
 aside .socialSidaBar .socialCards {
   display: flex;
   width: 100%;
@@ -326,11 +343,9 @@ aside .socialSidaBar .socialCards {
   align-items: center;
   cursor: pointer;
 }
-
 aside .socialSidaBar .socialCards:hover {
   background: #1c1c1c;
 }
-
 aside .socialSidaBar .socialCards .stateLayer {
   display: flex;
   padding: 8px 24px 8px 16px;
@@ -339,7 +354,6 @@ aside .socialSidaBar .socialCards .stateLayer {
   flex: 1 0 0;
   align-self: stretch;
 }
-
 aside .socialSidaBar .socialCards .stateLayer .avatar {
   display: flex;
   width: 40px;
@@ -353,14 +367,12 @@ aside .socialSidaBar .socialCards .stateLayer .avatar {
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px;
-  /* 150% */
+  line-height: 24px; /* 150% */
   letter-spacing: 0.15px;
   border-radius: 100px;
   border: 2px solid #44fef2;
   background: #1c1c1c;
 }
-
 aside .socialSidaBar .socialCards .stateLayer .content .headline {
   align-self: stretch;
   color: #44fef2;
@@ -369,11 +381,9 @@ aside .socialSidaBar .socialCards .stateLayer .content .headline {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px;
-  /* 150% */
+  line-height: 24px; /* 150% */
   letter-spacing: 0.5px;
 }
-
 aside .socialSidaBar .socialCards .stateLayer .content .littleText {
   height: 20px;
   align-self: stretch;
@@ -386,7 +396,8 @@ aside .socialSidaBar .socialCards .stateLayer .content .littleText {
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px;
-  /* 142.857% */
+  line-height: 20px; /* 142.857% */
   letter-spacing: 0.25px;
 }
+
+/*# sourceMappingURL=style.css.map */
