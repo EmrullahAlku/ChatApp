@@ -48,7 +48,7 @@ INSTALLED_APPS = [
 ASGI_APPLICATION = 'ChatApp.asgi.application'
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "channels.layers.InMemoryChannelLayer"
+        "BACKEND": "channels.layers.InMemoryChannelLayer",   
     }
 }
 

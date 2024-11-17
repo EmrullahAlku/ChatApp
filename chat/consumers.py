@@ -20,14 +20,19 @@ class ChatConsumer(AsyncWebsocketConsumer):
     async def receive(self, text_data):
         text_data_json = json.loads(text_data)
         message = text_data_json["message"]
-        print(message)
+        user = self.scope["user"]
+        print(user.username)
         await self.channel_layer.group_send(
             self.roomGroupName,{
                 "type" : "sendMessage" ,
-                "message" : message , 
+                "message" : message ,
+                'user' : user.username
             })
     #mesajı client'e gönderir
     async def sendMessage(self , event) : 
         message = event["message"]
-        await self.send(text_data = json.dumps({"message":message}))
+        user=event["user"]
+        print("Karşıdaki kullanıcı"+user)
+        await self.send(text_data = json.dumps({"message": message , "user": user}))
+
       

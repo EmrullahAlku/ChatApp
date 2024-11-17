@@ -24,6 +24,24 @@
     </div>
 
     <!-- JavaScript Libraries -->
+
+    {% if first_user == request.user %}
+    <!---->
+    {{ second_user.username|json_script:"user" }}
+    <script>
+      console.log("True");
+    </script>
+    <!---->
+    {% else %}
+    <!---->
+    {{ first_user.username|json_script:"user" }}
+    <script>
+      console.log("False");
+    </script>
+    <!---->
+    {% endif %}
+    <!---->
+
     {{ room_name|json_script:"room-name" }}
     <script src="{% static 'js/main.js' %}"></script>
   </body>

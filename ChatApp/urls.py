@@ -17,10 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from chat import views as chatViews
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("chat/", include("chat.urls")),
-    path("login/", chatViews.userLogin, name="login"),    
+    path("login/", chatViews.userLogin, name="login"),
+    path('logout/', chatViews.userLogout, name='logout'),  
     path("", include("chat.urls")),
 ]

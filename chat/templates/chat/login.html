@@ -27,30 +27,6 @@
       </form>
     </div>
     <script>
-      /*const form = document.querySelector("form");
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const username = document.querySelector("#username").value;
-        const password = document.querySelector("#password").value;
-        fetch("/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username,
-            password,
-          }),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.status === "success") {
-              window.location.href = "/chat";
-            } else {
-              alert(data.message);
-            }
-          });
-      });**/
       document.querySelector("#username").focus();
       document.querySelector("#username").onkeyup = function (e) {
         if (e.key === "Enter") {

@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from .models import Room, Message
+from django.contrib.auth import logout
 
 @login_required(login_url="login")
 def index(request):
@@ -14,8 +15,10 @@ def index(request):
 @login_required(login_url="login")
 def room(request, room_name):
     Profileusername=request.user
+    first_user = Room.objects.get(id=room_name).first_user
+    second_user = Room.objects.get(id=room_name).second_user
     user = User.objects.all().exclude(username=request.user)
-    return render(request, "chat/home.html", {"room_name": room_name, "users": user , "username": Profileusername})
+    return render(request, "chat/home.html", {"first_user":first_user,"second_user":second_user,"room_name": room_name ,"users": user , "username": Profileusername})
 
 """ def home(request):
     return render(request, "chat/home.html") """
@@ -31,6 +34,11 @@ def userLogin(request):
             return redirect("index")
 
     return render(request, "chat/login.html")
+
+
+def userLogout(request):
+    logout(request)
+    return redirect("login")
 
 @login_required(login_url="login")
 def startChat(request, username):
