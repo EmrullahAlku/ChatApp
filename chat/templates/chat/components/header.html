@@ -57,18 +57,23 @@
   </div>
 
   {# Profil ve Sunucu Nav Yeri #}
+
   <div class="tabGroup">
     <nav class="server">
       <div class="state-layer">
         <div class="content">Servers</div>
       </div>
     </nav>
-    <nav class="profile">
+    <nav class="profile dropdown">
       <div class="state-layer">
         <div class="content">
           <div class="avatar">A</div>
-          <div class="lang">Profile</div>
+          <div class="lang">{{ username }}</div>
         </div>
+      </div>
+      <div class="dropdown-content">
+        <a href="">Logout </a>
+        {% comment %} {% url 'logout' %} {% endcomment %}
       </div>
     </nav>
   </div>

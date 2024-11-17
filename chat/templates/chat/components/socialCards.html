@@ -1,10 +1,10 @@
 {% load static %}
-<div class="socialCards">
+<a href="{% url "start_chat" user %}" class="socialCards">
   <div class="stateLayer">
     <div class="avatar">A</div>
     <div class="content">
-      <div class="headline">Ahmet Yılmaz</div>
-      <div class="littleText" id="chatLog">Selam</div>
+      <div class="headline">{{user.username}}</div>
+      <div class="littleText" id="chatLog"></div>
     </div>
   </div>
-</div>
+</a>

@@ -1,22 +1,63 @@
-{% extends 'chat/base.html' %}
-<!-- -->
-{% block title %}Login{% endblock %}
-<!-- -->
-{% block body %}
-
-<div class="loginPage">
-  <h2>Login</h2>
-  <form method="post">
-    {% csrf_token %}
-    <div class="form-group">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required />
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}" />
+  </head>
+  <body>
+    <div class="loginPage">
+      <h2>Login</h2>
+      <form method="post">
+        {% csrf_token %}
+        <div class="username-form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div class="password-form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <div class="submitButtons">
+          <button type="submit" id="loginSubmit">Login</button>
+          <button type="submit" id="loginSubmit">Register</button>
+        </div>
+      </form>
     </div>
-    <div class="form-group">
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required />
-    </div>
-    <button type="submit">Login</button>
-  </form>
-</div>
-{% endblock %}
+    <script>
+      /*const form = document.querySelector("form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const username = document.querySelector("#username").value;
+        const password = document.querySelector("#password").value;
+        fetch("/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username,
+            password,
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.status === "success") {
+              window.location.href = "/chat";
+            } else {
+              alert(data.message);
+            }
+          });
+      });**/
+      document.querySelector("#username").focus();
+      document.querySelector("#username").onkeyup = function (e) {
+        if (e.key === "Enter") {
+          // enter, return
+          document.querySelector("#loginSubmit").click();
+        }
+      };
+    </script>
+  </body>
+</html>

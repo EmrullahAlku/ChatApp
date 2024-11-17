@@ -11,9 +11,9 @@ class Room(models.Model):
     second_user = models.ForeignKey(User, verbose_name="Second User", related_name='room_second', on_delete=models.CASCADE)
 
 #Group
-class ChatUser(models.Model):
+""" class ChatUser(models.Model):
     user = models.ForeignKey(User, verbose_name="User", related_name='chat_user', on_delete=models.CASCADE)
-    room = models.ForeignKey(Room, verbose_name="Room", related_name='chat_users', on_delete=models.CASCADE)
+    room = models.ForeignKey(Room, verbose_name="Room", related_name='chat_users', on_delete=models.CASCADE) """
 
 class Message(models.Model):
     user = models.ForeignKey(User, verbose_name="User", related_name='messages', on_delete=models.CASCADE)

@@ -1,9 +1,9 @@
 {% load static %}
 <div class="socialSidaBar">
+  {% for user in users %}
   <!-- -->
   {% include 'chat/components/socialCards.html' %}
   <!-- -->
-  {% include 'chat/components/socialCards.html' %}
+  {% endfor %}
   <!-- -->
-  {% include 'chat/components/socialCards.html' %}
 </div>

@@ -1,43 +1,20 @@
-<!-- chat/templates/chat/index.html -->
-{% load static %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Chat Rooms</title>
-    <link href="{% static '/css/style.css' %}" rel="stylesheet" />
-  </head>
-  <body>
-    <div class="enterRoomPage">
-      <div class="roomNameLabel">What chat room would you like to enter?</div>
+{% extends 'chat/base.html' %}
+<div></div>
+{% block title %} {{ settings.title }} {% endblock %}
+<div></div>
+{% block keywords %} {{ settings.keywords }} {% endblock %}
+<div></div>
+{% block description %} {{ settings.description }} {% endblock %}
 
-      <input
-        id="room-name-input"
-        class="roomNameInput"
-        type="text"
-        size="100"
-      /><br />
-      <input
-        id="room-name-submit"
-        class="roomNameSubmit"
-        type="button"
-        value="Enter"
-      />
-    </div>
+<div></div>
 
-    <script>
-      document.querySelector("#room-name-input").focus();
-      document.querySelector("#room-name-input").onkeyup = function (e) {
-        if (e.key === "Enter") {
-          // enter, return
-          document.querySelector("#room-name-submit").click();
-        }
-      };
-
-      document.querySelector("#room-name-submit").onclick = function (e) {
-        var roomName = document.querySelector("#room-name-input").value;
-        window.location.pathname = "/chat/" + roomName + "/";
-      };
-    </script>
-  </body>
-</html>
+{% block body %}
+<aside>
+  <!-- Sidebar start-->
+  {% include 'chat/components/socialSideBar.html' %}
+  <!-- Sidebar end -->
+</aside>
+<main>
+  <div class="firstLogin"></div>
+</main>
+{% endblock %}
