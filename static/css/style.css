@@ -6,9 +6,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-body a {
-  text-decoration: none;
-}
 body .chatPage {
   width: 100%;
   height: 100%;
@@ -51,6 +48,8 @@ body .loginPage form div input {
 }
 body .loginPage .submitButtons {
   display: flex;
+  flex-direction: row;
+  margin-top: 4px;
   align-items: center;
   justify-content: space-between;
 }
@@ -63,6 +62,64 @@ body .loginPage .submitButtons button {
   color: white;
   border: none;
   display: flex;
+  cursor: pointer;
+}
+body .registerPage {
+  color: white;
+  background-color: #1c1c1c;
+  display: flex;
+  height: 720px;
+  width: 480px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body .registerPage form {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+body .registerPage form div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+body .registerPage form div label {
+  color: white;
+}
+body .registerPage form div input {
+  padding: 12px;
+  border-radius: 24px;
+  background: #0d0d0d;
+  color: white;
+  border: none;
+}
+body .registerPage .submitButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+body .registerPage .submitButtons button {
+  width: fit-content;
+  height: fit-content;
+  padding: 12px 18px;
+  border-radius: 24px;
+  background: #0d0d0d;
+  color: white;
+  border: none;
+  display: flex;
+  cursor: pointer;
+}
+body .registerPage .submitButtons .loginButton {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+body .registerPage .submitButtons .loginButton label {
+  font-size: 14px;
   cursor: pointer;
 }
 body .enterRoomPage {
@@ -97,6 +154,30 @@ body .enterRoomPage .roomNameSubmit {
   background: #0d0d0d;
   color: white;
   border: none;
+}
+body a {
+  text-decoration: none;
+}
+body .alert {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  background: #b03535;
+  color: white;
+  border-radius: 12px;
+  margin-top: 8px;
+}
+body .alert .errorlist {
+  gap: 8px;
+}
+body .alert .errorlist li {
+  padding-left: 12px;
+  margin-left: 12px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  gap: 4px;
 }
 
 header {

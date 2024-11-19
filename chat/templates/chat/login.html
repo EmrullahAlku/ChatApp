@@ -22,7 +22,13 @@
         </div>
         <div class="submitButtons">
           <button type="submit" id="loginSubmit">Login</button>
-          <button type="submit" id="loginSubmit">Register</button>
+          <button
+            type="button"
+            id="registerButton"
+            onclick="window.location.href='{% url 'register' %}'"
+          >
+            Register
+          </button>
         </div>
       </form>
     </div>

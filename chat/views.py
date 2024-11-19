@@ -1,8 +1,11 @@
 # chat/views.py
+from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
+from django.contrib import messages
+from chat.forms import RegisterForm
 from .models import Room, Message
 from django.contrib.auth import logout
 
@@ -39,6 +42,30 @@ def userLogin(request):
 def userLogout(request):
     logout(request)
     return redirect("login")
+
+def userRegister(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = user.username.lower()
+            user.save()
+            password = form.cleaned_data['password1']
+            user = authenticate(username=user.username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.success(request, "Hesabınız Oluşturuldu")
+                return HttpResponseRedirect('/')
+            else:
+                messages.warning(request, "Kullanıcı doğrulaması başarısız oldu.")
+                return HttpResponseRedirect('/register')
+        else:
+            messages.warning(request, form.errors)
+            return HttpResponseRedirect('/register')
+
+    form = RegisterForm
+    context = {"form": form}
+    return render(request, "chat/register.html", context)
 
 @login_required(login_url="login")
 def startChat(request, username):

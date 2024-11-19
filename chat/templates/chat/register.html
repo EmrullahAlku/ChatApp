@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}" />
+  </head>
+  <body>
+    <div class="registerPage">
+      {% if messages %}
+      <!---->
+      {% for message in messages %}
+      <!---->
+      {% if message.tags == 'success' %}
+      <!---->
+      <div class="alert alert-success">{{ message }}</div>
+      <!---->
+      {% else %}
+      <div class="alert alert-danger">{{ message }}</div>
+      <!---->
+      {% endif %}
+      <!---->
+      {% endfor %}
+      <!---->
+      {% endif %}
+      <h2>Register</h2>
+      <form method="post">
+        {% csrf_token %} {{ form.as_div }}
+        <div class="submitButtons">
+          <button class="registerButton" type="submit" id="sendMessageButton">
+            Register
+          </button>
+          <div class="loginButton">
+            <label for="loginButton">Do you have account?</label>
+            <button
+              class="loginButton2"
+              type="button"
+              id="loginButton"
+              onclick="window.location.href='{% url 'login' %}'"
+            >
+              Login
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script>
+      /*document.querySelector("#username").focus();
+      document.querySelector("#username").onkeyup = function (e) {
+        if (e.key === "Enter") {
+          // enter, return
+          document.querySelector("#loginSubmit").click();
+        }
+      };*/
+    </script>
+  </body>
+</html>
