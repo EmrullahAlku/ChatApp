@@ -10,3 +10,6 @@
 # Denote all files that are truly binary and should not be modified.
 *.png binary
 *.jpg binary
+
+# Declare .env files to always have LF line endings on checkout.
+*.env text eol=lf

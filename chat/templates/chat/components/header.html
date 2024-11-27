@@ -1,8 +1,8 @@
 {% load static %}
 <header>
-  {# İleri Geri Tuşu #}
+  {# forward back button#}
   <div class="arrows">
-    <div class="back">
+    <div class="back" onclick="goBack()">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -18,7 +18,7 @@
         />
       </svg>
     </div>
-    <div class="forward">
+    <div class="forward" onclick="goForward()">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -35,46 +35,43 @@
       </svg>
     </div>
   </div>
-  {# Arama Yeri #}
-  <div class="searchBar">
-    <div class="searchArea">
-      <input type="search" placeholder="Search" />
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-        fill="none"
-      >
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M14.76 13.27L20.49 19L19 20.49L13.27 14.76C12.2 15.53 10.91 16 9.5 16C5.91 16 3 13.09 3 9.5C3 5.91 5.91 3 9.5 3C13.09 3 16 5.91 16 9.5C16 10.91 15.53 12.2 14.76 13.27ZM9.5 5C7.01 5 5 7.01 5 9.5C5 11.99 7.01 14 9.5 14C11.99 14 14 11.99 14 9.5C14 7.01 11.99 5 9.5 5Z"
-          fill="#CAC4D0"
-        />
-      </svg>
-    </div>
-  </div>
 
-  {# Profil ve Sunucu Nav Yeri #}
+  <!-- Serach Bar-->
+  {% include "chat/components/searchbar.html" %}
 
+  <!-- Right Tab -->
   <div class="tabGroup">
     <nav class="server">
       <div class="state-layer">
-        <div class="content">Servers</div>
+        {% if 'chat' in request.path %}
+        <a
+          href="{% url 'delete_room_messages' room_name=room_name %}"
+          class="content"
+          >Delete Messages</a
+        >
+        {% endif %}
       </div>
     </nav>
     <nav class="profile dropdown">
       <div class="state-layer">
         <div class="content">
-          <div class="avatar">A</div>
+          <a href="/" class="avatar"> {{ username|upper|slice:"1" }} </a>
           <div class="lang">{{ username }}</div>
         </div>
       </div>
       <div class="dropdown-content">
         <a href="{% url 'logout' %}">Logout</a>
-        {% comment %} {% url 'logout' %} {% endcomment %}
+        <a href="{% url 'delete_account' %}">Delete Account</a>
       </div>
     </nav>
   </div>
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+
+    function goForward() {
+      window.history.forward();
+    }
+  </script>
 </header>

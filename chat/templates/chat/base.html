@@ -12,8 +12,8 @@
     <!---->
     <meta content={% block description %}"Django Chat App"{% endblock %}
     name="description">
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{% static '/css/style.css' %}" rel="stylesheet" />
+
+    <link href="{% static './css/style.css' %}" rel="stylesheet" />
   </head>
 
   <body>
@@ -22,23 +22,21 @@
       {% include 'chat/components/header.html' %}
       <!-- Header End -->
 
-      {% block body %} İndex {% endblock %}
+      {% block body %} {% endblock %}
     </div>
-
-    <!-- JavaScript Libraries -->
 
     {% if first_user == request.user %}
     <!---->
-    {{ second_user.username|json_script:"user" }}
+    {{ first_user.username|json_script:"user" }}
     <script>
-      console.log("True");
+      console.log("You are the first user");
     </script>
     <!---->
     {% else %}
     <!---->
-    {{ first_user.username|json_script:"user" }}
+    {{ second_user.username|json_script:"user" }}
     <script>
-      console.log("False");
+      console.log("You are the second user");
     </script>
     <!---->
     {% endif %}

@@ -6,41 +6,49 @@ const chatSocket = new WebSocket(
 );
 
 const currentUser = JSON.parse(document.getElementById("user").textContent);
-//const currentuser = JSON.getElementById("user").textContent;
 
 const sendButton = document.querySelector("#send");
 const messageInput = document.querySelector("#sendMessage");
 
+function scrollToBottom() {
+  const chatHistory = document.querySelector(".chatHistory");
+  chatHistory.scrollTop = chatHistory.scrollHeight;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  scrollToBottom();
+});
+
 chatSocket.onmessage = function (e) {
   const data = JSON.parse(e.data);
-  console.log(roomName);
-  console.log("Gönderen Kişi " + data.user + " Alan Kişi: " + currentUser);
-  //document.querySelector("#chat-log").value += data.message + "\n";
+
   if (currentUser == data.user) {
     var message = `
-    <div class="oldMessages">
-      <div class="avatar">A</div>
+    <div class="mySelf">
       <div class="content">
-        <div class="headline">Ahmet Yılmaz</div>
-        <div class="message" id="chatLog">
+        <div class="headline">${data.user}</div>
+        <div class="message tooltip" id="chatLog">
+          <span class="tooltiptext">${data.created_at}</span>
           ${data.message}
         </div>
       </div>
+      <div class="avatar">${data.user.charAt(0).toUpperCase()} </div>
     </div>`;
   } else {
     var message = `
-    <div class="mySelf">
-      <div class="avatar">A</div>
+    <div class="oldMessages">
+      <div class="avatar">${data.user.charAt(0).toUpperCase()} </div>
       <div class="content">
-        <div class="headline">Ahmet Yılmaz</div>
-        <div class="message" id="chatLog">
+        <div class="headline">${data.user}</div>
+        <div class="message tooltip" id="chatLog">
           ${data.message}
+          <span class="tooltiptext">${data.created_at}</span>
         </div>
       </div>
     </div>`;
   }
   conversation.innerHTML += message;
-
+  scrollToBottom();
   chatSocket.onclose = function (e) {
     console.error("Chat socket closed unexpectedly");
   };
@@ -55,7 +63,6 @@ messageInput.onkeyup = function (e) {
 
 sendButton.onclick = function (e) {
   const message = messageInput.value;
-  console.log("Deneme" + message);
   chatSocket.send(JSON.stringify({ message: message }));
   messageInput.value = "";
 };

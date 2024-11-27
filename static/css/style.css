@@ -1,11 +1,13 @@
 body {
   display: flex;
-  min-width: 100vh;
+  min-width: 100dvh;
   height: 100vh;
   background: #0d0d0d;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
+
 body .chatPage {
   width: 100%;
   height: 100%;
@@ -15,6 +17,7 @@ body .chatPage {
   gap: 24px;
   grid-template-areas: "header header" "sidebar main";
 }
+
 body .loginPage {
   color: white;
   background-color: #1c1c1c;
@@ -25,20 +28,24 @@ body .loginPage {
   justify-content: center;
   align-items: center;
 }
+
 body .loginPage form {
   width: 70%;
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
+
 body .loginPage form div {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
+
 body .loginPage form div label {
   color: white;
 }
+
 body .loginPage form div input {
   padding: 12px;
   border-radius: 24px;
@@ -46,6 +53,7 @@ body .loginPage form div input {
   color: white;
   border: none;
 }
+
 body .loginPage .submitButtons {
   display: flex;
   flex-direction: row;
@@ -53,6 +61,7 @@ body .loginPage .submitButtons {
   align-items: center;
   justify-content: space-between;
 }
+
 body .loginPage .submitButtons button {
   width: fit-content;
   height: fit-content;
@@ -64,6 +73,7 @@ body .loginPage .submitButtons button {
   display: flex;
   cursor: pointer;
 }
+
 body .registerPage {
   color: white;
   background-color: #1c1c1c;
@@ -74,20 +84,24 @@ body .registerPage {
   justify-content: center;
   align-items: center;
 }
+
 body .registerPage form {
   width: 70%;
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
+
 body .registerPage form div {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
+
 body .registerPage form div label {
   color: white;
 }
+
 body .registerPage form div input {
   padding: 12px;
   border-radius: 24px;
@@ -95,6 +109,7 @@ body .registerPage form div input {
   color: white;
   border: none;
 }
+
 body .registerPage .submitButtons {
   display: flex;
   flex-direction: row;
@@ -102,6 +117,7 @@ body .registerPage .submitButtons {
   justify-content: space-between;
   margin-top: 4px;
 }
+
 body .registerPage .submitButtons button {
   width: fit-content;
   height: fit-content;
@@ -113,15 +129,18 @@ body .registerPage .submitButtons button {
   display: flex;
   cursor: pointer;
 }
+
 body .registerPage .submitButtons .loginButton {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
+
 body .registerPage .submitButtons .loginButton label {
   font-size: 14px;
   cursor: pointer;
 }
+
 body .enterRoomPage {
   color: white;
   background-color: #1c1c1c;
@@ -134,6 +153,7 @@ body .enterRoomPage {
   align-items: center;
   border-radius: 18px;
 }
+
 body .enterRoomPage .roomNameInput {
   width: 80%;
   height: fit-content;
@@ -143,6 +163,7 @@ body .enterRoomPage .roomNameInput {
   color: white;
   border: none;
 }
+
 body .enterRoomPage .roomNameSubmit {
   width: fit-content;
   display: flex;
@@ -155,9 +176,11 @@ body .enterRoomPage .roomNameSubmit {
   color: white;
   border: none;
 }
+
 body a {
   text-decoration: none;
 }
+
 body .alert {
   display: flex;
   justify-content: flex-start;
@@ -168,9 +191,11 @@ body .alert {
   border-radius: 12px;
   margin-top: 8px;
 }
+
 body .alert .errorlist {
   gap: 8px;
 }
+
 body .alert .errorlist li {
   padding-left: 12px;
   margin-left: 12px;
@@ -191,22 +216,28 @@ header {
   align-self: center;
   background: #0d0d0d;
 }
+
 header .arrows {
   display: flex;
   padding: 10px;
   align-items: flex-start;
   gap: 10px;
 }
+
 header .arrows .back {
   width: 22;
   height: 30;
   color: white;
+  cursor: pointer;
 }
+
 header .arrows .forward {
+  cursor: pointer;
   width: 22;
   height: 30;
   color: #bfb6b6;
 }
+
 header .searchBar {
   height: 52pxpx;
   display: flex;
@@ -217,6 +248,15 @@ header .searchBar {
   border-radius: 28px;
   background: #1c1c1c;
 }
+
+header .searchBar form {
+  display: flex;
+  padding: 4px 12px;
+  margin: 0;
+  align-items: center;
+  width: 100%;
+}
+
 header .searchBar .searchArea {
   display: flex;
   padding: 4px 12px;
@@ -224,6 +264,12 @@ header .searchBar .searchArea {
   align-items: center;
   width: 100%;
 }
+
+header .searchBar .searchArea button {
+  background-color: transparent;
+  border: none;
+}
+
 header .searchBar .searchArea input {
   display: flex;
   width: 100%;
@@ -234,11 +280,15 @@ header .searchBar .searchArea input {
   border-color: transparent;
   color: white;
 }
+
 header .searchBar .searchArea svg {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  background-color: transparent;
+  color: white;
 }
+
 header .tabGroup {
   display: flex;
   align-items: center;
@@ -251,9 +301,11 @@ header .tabGroup {
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px; /* 142.857% */
+  line-height: 20px;
+  /* 142.857% */
   letter-spacing: 0.1px;
 }
+
 header .tabGroup .profile {
   display: flex;
   height: 48px;
@@ -264,6 +316,7 @@ header .tabGroup .profile {
   color: white;
   gap: 8px;
 }
+
 header .tabGroup .profile .avatar {
   display: flex;
   width: 24px;
@@ -273,67 +326,88 @@ header .tabGroup .profile .avatar {
   border-radius: 100px;
   background: #44fef2;
 }
+
 header .tabGroup .profile .lang {
   color: white;
   text-align: center;
 }
+
 header .tabGroup .server {
   display: flex;
   height: 48px;
+  width: fit-content;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
   flex: 1 0 0;
+  flex-wrap: nowrap;
 }
+
 header .tabGroup .state-layer {
+  max-height: 100%;
+  max-width: 100%;
+  min-width: fit-content;
   display: flex;
   padding: 0px 16px;
-  flex-direction: column;
   justify-content: flex-end;
   align-items: center;
   flex: 1 0 0;
   align-self: stretch;
 }
+
 header .tabGroup .state-layer .content {
+  height: fit-content;
   display: flex;
+  align-items: center;
+  flex-direction: row;
   padding: 12px 0px;
   justify-content: center;
-  align-items: flex-end;
   gap: 8px;
   flex: 1 0 0;
+  flex-wrap: nowrap;
+  cursor: pointer;
+  white-space: nowrap;
+  color: white;
 }
+
 header .divider {
   width: 240px;
   height: 1px;
   background: #36343b;
 }
+
 header .dropdown {
   position: relative;
   display: inline-block;
 }
+
 header .dropdown:hover {
   background-color: #1c1c1c;
 }
+
 header .dropdown:hover .dropdown-content {
   opacity: 1;
   transform: scaleY(1);
 }
+
 header .dropdown-content {
-  display: none;
+  display: flex;
+  flex-direction: column;
   position: absolute;
+  gap: 12px;
   background-color: #1c1c1c;
   color: #e6e0e9;
   min-width: 96px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  margin-bottom: -46px;
-  margin-right: 24px;
+  margin-bottom: -100px;
+  margin-right: 22px;
   padding: 12px 16px;
   z-index: 1;
-  display: block;
   transition: all 0.3s ease-in-out;
-  transform-origin: top;
+  transform-origin: bottom;
   opacity: 0;
 }
+
 header .dropdown-content a {
   color: white;
 }
@@ -349,11 +423,12 @@ main {
   flex-shrink: 0;
   align-self: stretch;
 }
+
 main .chatHistory {
   display: flex;
+  overflow-y: auto;
   padding: 4px;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: start;
   gap: 0px;
   flex: 1 0 0;
@@ -361,15 +436,16 @@ main .chatHistory {
   border-radius: 16px 0px 0px 0px;
   background: #1c1c1c;
 }
-main .chatHistory .oldMessages {
+
+.oldMessages {
   display: flex;
-  height: 72px;
   padding: 8px 24px 8px 16px;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
   align-self: stretch;
 }
-main .chatHistory .oldMessages .avatar {
+
+.oldMessages .avatar {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -381,17 +457,20 @@ main .chatHistory .oldMessages .avatar {
   background: var(--M3-sys-dark-primary-container, #4f378b);
   color: white;
 }
-main .chatHistory .oldMessages .content .headline {
+
+.oldMessages .content .headline {
   align-self: stretch;
   color: #44fef2;
   font-family: Roboto;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
+  /* 150% */
   letter-spacing: 0.5px;
 }
-main .chatHistory .oldMessages .content .message {
+
+.oldMessages .content .message {
   height: 20px;
   align-self: stretch;
   overflow: hidden;
@@ -403,19 +482,21 @@ main .chatHistory .oldMessages .content .message {
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px; /* 142.857% */
+  line-height: 20px;
+  /* 142.857% */
   letter-spacing: 0.25px;
 }
-main .chatHistory .mySelf {
+
+.mySelf {
   display: flex;
   justify-content: flex-end;
-  height: 72px;
   padding: 8px 24px 8px 16px;
   align-items: center;
   gap: 16px;
   align-self: stretch;
 }
-main .chatHistory .mySelf .avatar {
+
+.mySelf .avatar {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -427,19 +508,25 @@ main .chatHistory .mySelf .avatar {
   background: var(--M3-sys-dark-primary-container, #4f378b);
   color: white;
 }
-main .chatHistory .mySelf .content .headline {
-  align-self: stretch;
+
+.mySelf .content .headline {
+  display: flex;
+  justify-content: flex-end;
   color: #44fef2;
   font-family: Roboto;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
+  /* 150% */
   letter-spacing: 0.5px;
 }
-main .chatHistory .mySelf .content .message {
+
+.mySelf .content .message {
   height: 20px;
   align-self: stretch;
+  display: flex;
+  justify-content: flex-end;
   overflow: hidden;
   color: var(--M3-sys-dark-on-surface-variant, #cac4d0);
   text-overflow: ellipsis;
@@ -449,7 +536,8 @@ main .chatHistory .mySelf .content .message {
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px; /* 142.857% */
+  line-height: 20px;
+  /* 142.857% */
   letter-spacing: 0.25px;
 }
 
@@ -462,6 +550,7 @@ main .chatHistory .mySelf .content .message {
   align-self: stretch;
   background: #1c1c1c;
 }
+
 .sendMessage .writeBar {
   display: flex;
   padding: 8px 0px 8px 12px;
@@ -470,10 +559,12 @@ main .chatHistory .mySelf .content .message {
   flex: 1 0 0;
   align-self: stretch;
 }
+
 .sendMessage .writeBar svg {
   width: 28px;
   height: 28px;
 }
+
 .sendMessage .writeBar input {
   background-color: transparent;
   border: none;
@@ -481,6 +572,7 @@ main .chatHistory .mySelf .content .message {
   height: 100%;
   color: white;
 }
+
 .sendMessage .micButton {
   display: flex;
   width: 48px;
@@ -491,6 +583,7 @@ main .chatHistory .mySelf .content .message {
   border-radius: 32px;
   background: #0d0d0d;
 }
+
 .sendMessage .submitButton {
   display: flex;
   width: 48px;
@@ -520,6 +613,7 @@ aside {
   height: 100%;
   width: 100%;
 }
+
 aside .socialSidaBar {
   display: flex;
   width: 100%;
@@ -532,6 +626,7 @@ aside .socialSidaBar {
   align-self: stretch;
   justify-content: flex-start;
 }
+
 aside .socialSidaBar .socialCards {
   display: flex;
   width: 100%;
@@ -542,9 +637,11 @@ aside .socialSidaBar .socialCards {
   align-items: center;
   cursor: pointer;
 }
+
 aside .socialSidaBar .socialCards:hover {
   background: #1c1c1c;
 }
+
 aside .socialSidaBar .socialCards .stateLayer {
   display: flex;
   padding: 8px 24px 8px 16px;
@@ -553,6 +650,7 @@ aside .socialSidaBar .socialCards .stateLayer {
   flex: 1 0 0;
   align-self: stretch;
 }
+
 aside .socialSidaBar .socialCards .stateLayer .avatar {
   display: flex;
   width: 40px;
@@ -566,12 +664,14 @@ aside .socialSidaBar .socialCards .stateLayer .avatar {
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
+  /* 150% */
   letter-spacing: 0.15px;
   border-radius: 100px;
   border: 2px solid #44fef2;
   background: #1c1c1c;
 }
+
 aside .socialSidaBar .socialCards .stateLayer .content .headline {
   align-self: stretch;
   color: #44fef2;
@@ -580,9 +680,11 @@ aside .socialSidaBar .socialCards .stateLayer .content .headline {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
+  /* 150% */
   letter-spacing: 0.5px;
 }
+
 aside .socialSidaBar .socialCards .stateLayer .content .littleText {
   height: 20px;
   align-self: stretch;
@@ -595,8 +697,44 @@ aside .socialSidaBar .socialCards .stateLayer .content .littleText {
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px; /* 142.857% */
+  line-height: 20px;
+  /* 142.857% */
   letter-spacing: 0.25px;
 }
 
-/*# sourceMappingURL=style.css.map */
+.tooltip {
+  position: relative;
+  gap: 8px;
+}
+
+.tooltip .tooltiptext {
+  margin-left: 8px;
+  display: inline-flex;
+  position: relative;
+  visibility: hidden;
+  overflow: visible;
+  width: fit-content;
+  background-color: gray;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 2px 1px;
+  font-size: 12px;
+  /* Position the tooltip */
+  top: 0;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.serachBarResult {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  grid-area: main;
+  color: white;
+  width: 100%;
+  height: fit-content;
+}

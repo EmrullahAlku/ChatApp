@@ -1,6 +1,6 @@
 # chat/views.py
 from django.http import HttpResponseRedirect
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
@@ -18,13 +18,20 @@ def index(request):
 @login_required(login_url="login")
 def room(request, room_name):
     Profileusername=request.user
+    room = Room.objects.get(id=room_name)
     first_user = Room.objects.get(id=room_name).first_user
     second_user = Room.objects.get(id=room_name).second_user
     user = User.objects.all().exclude(username=request.user)
-    return render(request, "chat/home.html", {"first_user":first_user,"second_user":second_user,"room_name": room_name ,"users": user , "username": Profileusername})
+    messages = Message.objects.filter(room=room_name)
+    
+    context = { "first_user" : first_user, 
+                "second_user" : second_user,
+                "room_name": room.id , 
+                "users": user , 
+                "username": Profileusername,
+                "messages": messages,}
+    return render(request, "chat/home.html", context )
 
-""" def home(request):
-    return render(request, "chat/home.html") """
 
 def userLogin(request):
 
@@ -42,6 +49,22 @@ def userLogin(request):
 def userLogout(request):
     logout(request)
     return redirect("login")
+
+@login_required(login_url="login")
+def delete_account(request):
+    user = request.user
+    user.delete()
+    logout(request)
+    messages.success(request, "Your account has been deleted successfully.")
+    return redirect("login")
+
+@login_required(login_url="login")
+def delete_room_messages(request, room_name):
+    room = get_object_or_404(Room, id=room_name)
+    print("oda id:" + room_name)
+    Message.objects.filter(room=room).delete()
+    messages.success(request, "All messages in the room have been deleted.")
+    return redirect("room", room_name=room.id)
 
 def userRegister(request):
     if request.method == 'POST':
@@ -79,3 +102,12 @@ def startChat(request, username):
         except Room.DoesNotExist:
             room = Room.objects.create(first_user=request.user, second_user=second_user)
     return redirect ('room', room_name=room.id)
+
+@login_required(login_url="login")
+def search_messages(request):
+    query = request.GET.get('q')
+    if query:
+        messages = Message.objects.filter(content__icontains=query).select_related('room')
+    else:
+        messages = Message.objects.none()
+    return render(request, "chat/search_results.html", {"messages": messages, "query": query})

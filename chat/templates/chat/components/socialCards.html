@@ -1,7 +1,7 @@
 {% load static %}
 <a href="{% url "start_chat" user %}" class="socialCards">
   <div class="stateLayer">
-    <div class="avatar">A</div>
+    <div class="avatar">{{user.username|slice:"1"|upper}}</div>
     <div class="content">
       <div class="headline">{{user.username}}</div>
       <div class="littleText" id="chatLog"></div>

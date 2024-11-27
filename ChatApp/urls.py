@@ -25,6 +25,9 @@ urlpatterns = [
     path("chat/", include("chat.urls")),
     path("login/", chatViews.userLogin, name="login"),
     path('logout/', chatViews.userLogout, name='logout'),  
-    path('register/', chatViews.userRegister, name='register'),  
+    path('register/', chatViews.userRegister, name='register'),
+    path('delete_account/', chatViews.delete_account, name='delete_account'),
+    path("delete_room_messages/<str:room_name>", chatViews.delete_room_messages, name="delete_room_messages"),
+    path("search_messages/", chatViews.search_messages, name="search_messages"),
     path("", include("chat.urls")),
 ]

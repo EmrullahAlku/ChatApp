@@ -1,0 +1,25 @@
+{% extends 'chat/base.html' %}
+<!---->
+{% block title %} {{ settings.title }} {% endblock %}
+<!---->
+{% block keywords %} {{ settings.keywords }} {% endblock %}
+<!---->
+{% block description %} {{ settings.description }} {% endblock %}
+<!---->
+
+{% block body %}
+<script>
+  console.log("Search Results Page: " + "{{ query }}");
+</script>
+<div class="serachBarResult">
+  <h2>Search Results for "{{ query }}"</h2>
+  {% if messages %}
+  <!---->
+  <div class="chatHistory">
+    {% include "chat/components/searchMessagesList.html" %}
+  </div>
+  {% else %}
+  <p>No messages found.</p>
+  {% endif %}
+</div>
+{% endblock %}

@@ -2,28 +2,31 @@
 <!-- -->
 {% if message.user == request.user %}
 <div class="mySelf">
-  <div class="content">
+  <a
+    class="content"
+    href="{% url 'room' room_name=message.room.id %}#message-{{ message.id }}"
+  >
     <div class="headline">{{message.user}}</div>
     <div class="message tooltip" id="chatLog">
       <span class="tooltiptext">{{message.created_at}}</span>
       {{message.content}}
     </div>
-  </div>
-  <div class="avatar">{{ message.user|upper|slice:"1" }}</div>
+  </a>
+  <div class="avatar">A</div>
 </div>
 {% else %}
 <div class="oldMessages">
-  <div class="avatar">{{ message.user|upper|slice:"1" }}</div>
-  <div class="content">
+  <div class="avatar">A</div>
+  <a
+    class="content"
+    href="{% url 'room' room_name=message.room.id %}#message-{{ message.id }}"
+  >
     <div class="headline">{{message.user}}</div>
     <div class="message tooltip" id="chatLog">
       {{message.content}}
       <span class="tooltiptext">{{message.created_at}}</span>
     </div>
-  </div>
+  </a>
 </div>
 
-{% endif %}
-<script></script>
-
-{% endfor %}
+{% endif %} {% endfor %}
