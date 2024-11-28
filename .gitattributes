@@ -13,3 +13,6 @@
 
 # Declare .env files to always have LF line endings on checkout.
 *.env text eol=lf
+
+# Declare db.sqlite3 file as binary to prevent modifications.
+db.sqlite3 binary
