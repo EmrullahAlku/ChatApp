@@ -33,8 +33,8 @@ This is a basic chat application built with Django. The application allows users
 
 2. Create a virtual environment and activate it:
    ```bash
-   python -m venv env
-   source env/bin/activate  # On Windows use `env\Scripts\activate`
+   python3 -m venv myenv # On Windows use python -m venv myenv
+   source myenv/bin/activate  # On Windows use `myenv\Scripts\activate`
 3. Install the required packages:
    ```bash
    pip install -r requirements.txt
