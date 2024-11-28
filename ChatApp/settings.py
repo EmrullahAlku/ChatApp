@@ -39,16 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_sass',
     'channels',
-    
     'chat',
 ]
 
 ASGI_APPLICATION = 'ChatApp.asgi.application'
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "channels.layers.InMemoryChannelLayer",   
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
     }
 }
 
