@@ -16,3 +16,8 @@
 
 # Declare db.sqlite3 file as binary to prevent modifications.
 db.sqlite3 binary
+
+# Other files and directories to ignore
+*.pyc
+__pycache__/
+.env
