@@ -63,12 +63,12 @@ This is a basic chat application built with Django. The application allows users
 
 - `chat/`: Contains the main chat application code.
   - `templates/`: HTML templates for the application.
-  - `static/`: Static files such as CSS and JavaScript.
   - `models.py`: Defines the database models for the application.
   - `views.py`: Contains the view functions for handling requests.
   - `urls.py`: URL routing for the application.
   - `consumers.py`: WebSocket consumers for real-time messaging.
 - `ChatApp/`: Contains the project settings and configuration.
+-  `static/`: Static files such as CSS and JavaScript.
 - `requirements.txt`: List of required Python packages.
 
 ## Contributing
