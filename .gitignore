@@ -1,2 +1,7 @@
 # Ignore database file
 db.sqlite3
+
+# Other files and directories to ignore
+*.pyc
+__pycache__/
+.env
