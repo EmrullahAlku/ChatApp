@@ -28,8 +28,8 @@ This is a basic chat application built with Django. The application allows users
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/chat-app.git
-   cd chat-app
+   git clone https://github.com/EmrullahAlku/ChatApp
+   cd ChatApp
 
 2. Create a virtual environment and activate it:
    ```bash
